@@ -8,6 +8,16 @@
 ## Ερώτημα 1
 The first exercise can be found on the folder "exercise1" and contains two files.
 
+## Briefly this program:
+- Asks the user for an integer value.
+- Creates the linked-lists ***L*** and ***histogram***.
+- Fills the list ***L*** with random integers based on the amount given by the user.
+- Prints the contents of ***L***.
+- Searches the list ***L*** and adds each unique number, as well as how many times it has been found, at the list ***histogram***.
+- Sorts the list ***histogram*** with increasing values, based on the number's value.
+- Prints the contents of ***histogram***.
+ 
+
 ### :page_facing_up: linked_list.cpp
 This file contains the code that implements the Linked list, and contains these important templates:
 <br><br>
