@@ -223,3 +223,6 @@ for (int i = 1; i < histogramSize; i++) {
 }
 print_list(histogram, true);
 ```
+<br><br>
+Λεωνίδας Πάστρας <br>
+p20155
