@@ -8,7 +8,7 @@
 ## Ερώτημα 1
 The first exercise can be found on the folder "exercise1" and contains two files.
 
-### -linked_list.cpp
+### :page_facing_up: linked_list.cpp
 This file contains the code that implements the Linked list, and contains these important templates:
 <br><br>
 
@@ -151,7 +151,7 @@ template <class T> void print_list(linked_list<T> &l, bool withCount) {...}
 &nbsp; withCount a boolean that determines whether the number's counts will be printed.
 <br><br>
 
-### -ex1.cpp
+### :page_facing_up: ex1.cpp
 This file contains the ***main*** function of the program.
 
 ```c++
