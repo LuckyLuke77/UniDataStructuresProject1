@@ -165,7 +165,7 @@ int userInput() {...}
 <br><br>
 
 ```c++
-int main(int argc, char *argv[]) {...}
+int main() {...}
 ```
 **Description**<br>
 &nbsp; The **main** function can be divided into 4 parts:<br>
