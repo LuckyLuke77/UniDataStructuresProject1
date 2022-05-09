@@ -22,10 +22,17 @@ template <class T> struct node<T> * access_node(linked_list<T> &linked_list, int
     return current;
 }
 
-// get node item at position i
-template <class T> T access(linked_list<T> &linked_list, int i) {
+// get node num at position i
+template <class T> T accessNum(linked_list<T> &linked_list, int i) {
     struct node<T> *item = access_node(linked_list, i);
     return item->num;
+}
+
+
+//get node numCount at position i
+template <class T> T accessNumCount(linked_list<T> &linked_list, int i) {
+    struct node<T> *item = access_node(linked_list, i);
+    return item->numCount;
 }
 
 // increase the numCount of item i
@@ -65,33 +72,39 @@ template <class T> void push_back(linked_list<T> &l, T x) {
     }
 }
 
-// append item x after position i
-template<class T> void insert_after(linked_list<T> &linked_list, int i, T x) {
+// append item x and y after position i
+template<class T> void insert_after(linked_list<T> &linked_list, int i, int x, int y) {
     if (i < 0 || i >= linked_list.size) throw out_of_range("the index is out of range");
     struct node<T> *ptr = access_node(linked_list, i);
     struct node<T> *new_node = new node<T>();
     new_node->num = x;
+    new_node->numCount = y;
     new_node->next = ptr->next;
     ptr->next = new_node;
     linked_list.size++;
 }
 
-// append item at the head
-template <class T> void insert_head(linked_list<T> &linked_list, T x) {
+// append item x and y at the head
+template <class T> void insert_head(linked_list<T> &linked_list, int x, int y) {
     struct node<T> *new_node = new node<T>();
     new_node->num = x;
+    new_node->numCount = y;
     new_node->next = linked_list.head;
     linked_list.head = new_node;
     linked_list.size++;
 }
 
-// append item x at position i
-template <class T> void insert(linked_list<T> &linked_list, int i, T x) {
-    if (i == 0) insert_head(linked_list, x);
-    else insert_after(linked_list, i - 1, x);
+// append item x and y at position i
+template <class T> void insert(linked_list<T> &linked_list, int i, int x, int y) {
+    if (i == 0) {
+        insert_head(linked_list, x, y);
+    }
+    else { 
+        insert_after(linked_list, i - 1, x, y);
+    }
 }
 
-// delete item at position i
+// delete the item at position i
 template <class T> void delete_item(linked_list<T> &l, int i) {
     if (i < 0 || i >= l.size) throw out_of_range("the index is out of range");
     if (i == 0) {
