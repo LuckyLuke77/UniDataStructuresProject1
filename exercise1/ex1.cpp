@@ -45,7 +45,7 @@ int main() {
             increaseNumCount(histogram, search(histogram, currentNodeValue));
         }
     }
-
+    // Sorts the histogram list using the bubble sort algorithm
     for (int i = 1; i < histogramSize; i++) {
         for (int j = histogramSize - 1; j > i; j--) {
             if (accessNum(histogram, j) < accessNum(histogram, j - 1)) {
