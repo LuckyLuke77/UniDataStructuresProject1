@@ -19,7 +19,7 @@ The first exercise can be found on the folder "exercise1" and contains two files
  
 
 ### :page_facing_up: linked_list.cpp
-This file contains the code that implements the Linked list, and contains these important templates:
+This file contains the code that implements the Linked list, and contains the following important templates:
 <br><br>
 
 ```c++
