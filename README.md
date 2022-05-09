@@ -1,4 +1,4 @@
-<div align="center"
+<div align="center">
   <h1>Δομές Δεδομένων <br>
   1η Εργασία <br>
   Εαρινό Εξάμηνο 2022</h1>
