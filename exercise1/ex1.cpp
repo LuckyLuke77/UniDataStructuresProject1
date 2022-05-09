@@ -21,7 +21,7 @@ int userInput() {
     return userValue;
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     int listSize = userInput(); 
     linked_list<int> L; 
     linked_list<int> histogram; 
@@ -34,24 +34,24 @@ int main(int argc, char *argv[]) {
     }
     print_list(L, false);
 
-    // bubble sort list L
-    for (int i = 1; i < listSize; i++) {
-        for (int j = listSize - 1; j > i; j--) {
-            if (access(L, j) < access(L, j - 1)) {
-                insert(L, j - 1, access(L, j));
-                delete_item(L, j + 1);
-            }
-        }
-    }
-    //print_list(L);
-    
+    int histogramSize = 0;
     // Fills the list histogram with the neccessary data
     for (int i=0; i < listSize; i++) {
-        int currentNodeValue = access(L, i);
+        int currentNodeValue = accessNum(L, i);
         if (search(histogram, currentNodeValue) == -1) {
             push_back(histogram, currentNodeValue);
+            histogramSize++;
         } else {
             increaseNumCount(histogram, search(histogram, currentNodeValue));
+        }
+    }
+
+    for (int i = 1; i < histogramSize; i++) {
+        for (int j = histogramSize - 1; j > i; j--) {
+            if (accessNum(histogram, j) < accessNum(histogram, j - 1)) {
+                insert(histogram, j - 1, accessNum(histogram, j), accessNumCount(histogram, j));
+                delete_item(histogram, j + 1);
+            }
         }
     }
     print_list(histogram, true);
