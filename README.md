@@ -8,7 +8,7 @@
 ## Ερώτημα 1
 The first exercise can be found on the folder "exercise1" and contains two files.
 
-## Briefly this program:
+### Briefly, this program:
 - Asks the user for an integer value.
 - Creates the linked-lists ***L*** and ***histogram***.
 - Fills the list ***L*** with random integers based on the amount given by the user.
