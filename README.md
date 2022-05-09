@@ -7,6 +7,7 @@
 
 ## Ερώτημα 1
 The first exercise can be found on the folder "exercise1" and contains two files.
+
 ### -linked_list.cpp
 This file contains the code that implements the Linked list, and contains these important templates:
 <br><br>
@@ -26,7 +27,7 @@ template <class T> struct node<T> * access_node(linked_list<T> &linked_list, int
 <br><br>
 
 ```c++
-template <class T> int access(linked_list<T> &linked_list, int i) {...}
+template <class T> int accessNum(linked_list<T> &linked_list, int i) {...}
 ```
 **Description**<br>
 &nbsp; Get the node's number at position i from a linked list.
@@ -37,6 +38,20 @@ template <class T> int access(linked_list<T> &linked_list, int i) {...}
 
 **What the function template returns**<br>
 &nbsp; The number inside the node at the position i.
+<br><br>
+
+```c++
+template <class T> int accessNumCount(linked_list<T> &linked_list, int i) {...}
+```
+**Description**<br>
+&nbsp; Get the node's number count at position i from a linked list.
+
+**Parameters**<br>
+&nbsp; &linked_list The linked list. <br>
+&nbsp; i The position.
+
+**What the function template returns**<br>
+&nbsp; The number count inside the node at the position i.
 <br><br>
 
 ```c++
@@ -77,38 +92,41 @@ template <class T> void push_back(linked_list<T> &l, int x) {...}
 <br><br>
 
 ```c++
-template<class T> void insert_after(linked_list<T> &linked_list, int i, int x) {...}
+template<class T> void insert_after(linked_list<T> &linked_list, int i, int x, int y) {...}
 ```
 **Description**<br>
-&nbsp; Creates a new node with the number x and inserts it at the position i.
+&nbsp; Creates a new node with the number x and the numbers count y, and inserts it at the position i.
 
 **Parameters**<br>
 &nbsp; &linked_list The linked list. <br>
 &nbsp; i The position of the node. <br>
-&nbsp; x The number of the node.
+&nbsp; x The number of the node. <br>
+&nbsp; y The number count of the node.
 <br><br>
 
 ```c++
-template <class T> void insert_head(linked_list<T> &linked_list, int x) {...}
+template <class T> void insert_head(linked_list<T> &linked_list, int x, int y) {...}
 ```
 **Description**<br>
-&nbsp; Appends a node at the head of the list.
+&nbsp; Appends a node at the head of the list with the number x and the number count y.
 
 **Parameters**<br>
 &nbsp; &linked_list The linked list. <br>
-&nbsp; x The number of the node.
+&nbsp; x The number of the node. <br>
+&nbsp; y The number count of the node.
 <br><br>
 
 ```c++
 template <class T> void insert(linked_list<T> &linked_list, int i, int x) {...}
 ```
 **Description**<br>
-&nbsp; Creates a new node with the number x and inserts it at the position i.
+&nbsp; Creates a new node with the number x and the number count y, and inserts it at the position i.
 
 **Parameters**<br>
 &nbsp; &linked_list The linked list. <br>
 &nbsp; i The position of the node. <br>
-&nbsp; x The number of the node.
+&nbsp; x The number of the node. <br>
+&nbsp; y The number count of the node.
 <br><br>
 
 ```c++
@@ -161,7 +179,7 @@ std::default_random_engine generator;
 std::uniform_int_distribution<int> distribution(0, 9);
 ```
 
-<br> 2. Afterwards, we call a loop that fills the list ***L*** with randomly generated numbers.
+<br> 2. Afterwards, we call a loop that fills the list ***L*** with randomly generated numbers. Additionally, we print the list ***L***.
 ```c++
 int randomInt;
 for (int i=0; i < listSize; i++) { 
@@ -169,21 +187,9 @@ for (int i=0; i < listSize; i++) {
     push_back(L, randomInt);  
 }
 print_list(L, false);
-
 ```
 
-<br> 3. In this step, we **sort** the list ***L*** with increasing values, using the *bubble sort* algorithm. We do this step in order for the ***histogram*** to also be ordered with increasing values as well.
-```c++
-for (int i = 1; i < listSize; i++) {
-    for (int j = listSize - 1; j > i; j--) {
-        if (access(L, j) < access(L, j - 1)) {
-            insert(L, j - 1, access(L, j));
-            delete_item(L, j + 1);
-        }
-    }
-}
-```
-<br> 4. Finally, we fill the ***histogram*** list. We do this by checking each number of the list ***L*** using `search()`, if the number we checked has been found before then we increase the number's count by calling `increaseNumCount()`, otherwise we add a new node at the end of the list with the newly found number using `push_back()`. Remember, in the end the list will be sorted with increasing values because of step 3! 
+<br> 3. Next, we fill the ***histogram*** list. We do this by checking each number of the list ***L*** using `search()`, if the number we checked has been inserted before then we increase the number's count by calling `increaseNumCount()`, otherwise we add a new node at the end of the list with the newly found number using `push_back()`.
 ```c++
 for (int i=0; i < listSize; i++) {
     int currentNodeValue = access(L, i);
@@ -192,6 +198,18 @@ for (int i=0; i < listSize; i++) {
     } else {
         increaseNumCount(histogram, search(histogram, currentNodeValue));
      }
+}
+```
+
+<br> 4. Lastly, we sort the nodes of the list ***histogram*** based on the values of the node's number value, ~~not the node's number count~~. We achive this by calling and comparing the results of `accessNum()`. This code block initialises a bubble sort algorithm.
+```c++
+for (int i = 1; i < histogramSize; i++) {
+  for (int j = histogramSize - 1; j > i; j--) {
+    if (accessNum(histogram, j) < accessNum(histogram, j - 1)) {
+      insert(histogram, j - 1, accessNum(histogram, j), accessNumCount(histogram, j));
+      delete_item(histogram, j + 1);
+    }
+  }
 }
 print_list(histogram, true);
 ```
