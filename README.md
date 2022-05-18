@@ -223,6 +223,10 @@ for (int i = 1; i < histogramSize; i++) {
 }
 print_list(histogram, true);
 ```
+## Ερώτημα 2
+The second exercise can be found on the folder "exercise2" and contains two files.
+
+
 <br><br>
 Λεωνίδας Πάστρας <br>
 p20155
