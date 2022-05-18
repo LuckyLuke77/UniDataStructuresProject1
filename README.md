@@ -226,6 +226,13 @@ print_list(histogram, true);
 ## Ερώτημα 2
 The second exercise can be found on the folder "exercise2" and contains two files.
 
+### Briefly, this program:
+- Asks the user for an integer value.
+- Creates the float array ***heap_min*** with **N** size and fills it with random float numbers.
+- Creates the float array ***heap_max*** with **N** size and fills it with the same numbers as ***heap_min***.
+
+
+
 
 <br><br>
 Λεωνίδας Πάστρας <br>
