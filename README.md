@@ -230,7 +230,7 @@ print_list(histogram, true);
 The second exercise can be found on the folder "exercise2" and contains two files.
 
 ### Briefly, this program:
-- Asks the user for an integer value.
+- Asks the user for an integer value **N**.
 - Creates the float array ***heap_min*** with **N** size and fills it with random float numbers.
 - Creates the float array ***heap_max*** with **N** size and fills it with the same numbers as ***heap_min***.
 - Turns the array ***heap_min*** into a Min-Heap and sums up all of its items from the smallest to the largest.
@@ -256,8 +256,8 @@ void TurnToHeap(int k, string type) {...}
 &nbsp; Adds an item inside ***heap*** depending on the type of the heap.
 
 **Parameters**<br>
-&nbsp; k the integer value indicating where the item to be inserted inside ***heap*** is. <br>
-&nbsp; type the type of heap the program should expect (can only take the values "heapMax" or "heapMin").
+&nbsp; k The integer value indicating where the item to be inserted inside ***heap*** is. <br>
+&nbsp; type The type of heap the program should expect (can only take the values "heapMax" or "heapMin").
 <br><br>
 
 ```c++
@@ -267,9 +267,9 @@ void Initialize(float *a, int N, string type) {...}
 &nbsp; Copies an array into ***heap*** and then turns it into a heap.
 
 **Parameters**<br>
-&nbsp; a the array that turns to a heap. <br>
-&nbsp; N the size of the heap. <br>
-&nbsp; type the type of heap the program should turn the array into (can only take the values "heapMax" or "heapMin") .
+&nbsp; a The array that turns to a heap. <br>
+&nbsp; N The size of the heap. <br>
+&nbsp; type The type of heap the program should turn the array into (can only take the values "heapMax" or "heapMin") .
 <br><br>
 
 ```c++
@@ -285,16 +285,16 @@ void ChangeTop(float key) {...}
 **Description**<br>
 &nbsp; Change the first element (the root) of ***heap*** .
 **Parameters**<br>
-&nbsp; key the value that will be inserted at first element. <br>
+&nbsp; key The value that will be inserted at first element. <br>
 <br><br>
 
 ```c++
 void pop(string type) {...}
 ```
 **Description**<br>
-&nbsp; remove the first element (the root) of ***heap*** and find its successor.
+&nbsp; Remove the first element (the root) of ***heap*** and find its successor.
 **Parameters**<br>
-&nbsp; type the type of heap the program should expect (can only take the values "heapMax" or "heapMin").
+&nbsp; type The type of heap the program should expect (can only take the values "heapMax" or "heapMin").
 <br><br>
 
 ### :page_facing_up: ex2.cpp
@@ -317,11 +317,11 @@ float HeapSum(int size, string type) {...}
 &nbsp; Summs up all the items inside ***heap*** from the smallest to the largest if it is a Min-Heap and from the largest to the smallest if it a Max-Heap.
 
 **Parameters**<br>
-&nbsp; size the integer size of the ***heap***. <br>
-&nbsp; type the type of heap the program should expect (can only take the values "heapMax" or "heapMin").
+&nbsp; size The integer size of the ***heap***. <br>
+&nbsp; type The type of heap the program should expect (can only take the values "heapMax" or "heapMin").
 
 **What the function template returns**<br>
-&nbsp; the first element (the root) of ***heap***, that by that time is the summ of all its previous items.
+&nbsp; The first element (the root) of ***heap***, that by that time is the summ of all its previous items.
 <br><br>
 
 ```c++
@@ -330,7 +330,7 @@ int main() {...}
 **Description**<br>
 &nbsp; The **main** function can be divided into 3 parts: <br>
 
-<br> 1. Firstly, we call the function `userInput()` and save the results, also, we create a random number generator.
+<br> 1. Firstly, we call the function `userInput()` and save the results, we also create a random number generator.
 ```c++
 int N = userInput(); // get the users value and save it
 std::default_random_engine generator;
