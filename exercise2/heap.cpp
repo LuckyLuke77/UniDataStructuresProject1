@@ -6,6 +6,7 @@ const int static HEAP_SIZE_LIMIT = 100000000; // 100 million
 float heap[HEAP_SIZE_LIMIT + 1];
 int heap_size = 0;
 
+// Add an item inside the heap to the appropriate place, depending on the type of the heap
 void TurnToHeap(int k, string type) {
     float v = heap[k];
     bool flag = false;
@@ -43,6 +44,7 @@ void TurnToHeap(int k, string type) {
     heap[k] = v;
 }
 
+// Turn the list a into a heap
 void Initialize(float *a, int N, string type) {
     heap_size = N;
     for (int i = 0; i < N; i++) {
