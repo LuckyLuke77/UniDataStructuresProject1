@@ -5,7 +5,7 @@
 </div>
 
 
-## Ερώτημα 1
+## :pencil2: Ερώτημα 1
 The first exercise can be found on the folder "exercise1" and contains two files.
 
 ### Briefly, this program:
@@ -223,16 +223,79 @@ for (int i = 1; i < histogramSize; i++) {
 }
 print_list(histogram, true);
 ```
-## Ερώτημα 2
+
+<br>
+
+## :pencil2: Ερώτημα 2
 The second exercise can be found on the folder "exercise2" and contains two files.
 
 ### Briefly, this program:
 - Asks the user for an integer value.
 - Creates the float array ***heap_min*** with **N** size and fills it with random float numbers.
 - Creates the float array ***heap_max*** with **N** size and fills it with the same numbers as ***heap_min***.
+- Turns the array ***heap_min*** into a Min-Heap and sums up all of its items from the smallest to the largest.
+- Turns the array ***heap_max*** into a Max-Heap and sums up all of its items from the largest to the smallest.
+- Calculates and prints the absolute difference of the two aforementioned sums.
 
+### :page_facing_up: heap.cpp
+This file contains the code that initializes the Min-Heap and the Max-Heap, as well as some other important functions:
+<br><br>
+```c++
+const int static HEAP_SIZE_LIMIT = 100000000; // 100 million
+float heap[HEAP_SIZE_LIMIT + 1];
+int heap_size = 0;
+```
+**Description**<br>
+&nbsp; Create the float array ***heap*** with a size of 100 million that will be used as the canvas for all future heap creations and manipulations.
+<br><br>
 
+```c++
+void TurnToHeap(int k, string type) {...}
+```
+**Description**<br>
+&nbsp; Adds an item inside ***heap*** depending on the type of the heap.
 
+**Parameters**<br>
+&nbsp; k the integer value indicating where the item to be inserted inside ***heap*** is. <br>
+&nbsp; type the type of heap the program should expect (can only take the values "heapMax" or "heapMin").
+<br><br>
+
+```c++
+void Initialize(float *a, int N, string type) {...}
+```
+**Description**<br>
+&nbsp; Copies an array into ***heap*** and then turns it into a heap.
+
+**Parameters**<br>
+&nbsp; a the array that turns to a heap. <br>
+&nbsp; N the size of the heap. <br>
+&nbsp; type the type of heap the program should turn the array into (can only take the values "heapMax" or "heapMin") .
+<br><br>
+
+```c++
+int top() {...}
+```
+**Description**<br>
+&nbsp; Return the first element (the root) of ***heap*** .
+<br><br>
+
+```c++
+void ChangeTop(float key) {...}
+```
+**Description**<br>
+&nbsp; Change the first element (the root) of ***heap*** .
+**Parameters**<br>
+&nbsp; key the value that will be inserted at first element. <br>
+<br><br>
+
+```c++
+void pop(string type) {...}
+```
+**Description**<br>
+&nbsp; remove the first element (the root) of ***heap*** and find its successor.
+**Parameters**<br>
+&nbsp; type the type of heap the program should expect (can only take the values "heapMax" or "heapMin").
+<br><br>
 
 <br><br>
 Λεωνίδας Πάστρας <br>
