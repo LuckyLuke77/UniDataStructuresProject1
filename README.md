@@ -297,6 +297,70 @@ void pop(string type) {...}
 &nbsp; type the type of heap the program should expect (can only take the values "heapMax" or "heapMin").
 <br><br>
 
+### :page_facing_up: ex2.cpp
+This file contains the ***main*** function of the program.
+
+```c++
+int userInput() {...}
+```
+**Description**<br>
+&nbsp; Asks for the user to enter the size of the heap.
+
+**What the function template returns**<br>
+&nbsp; The value that the user entered,
+<br><br>
+
+```c++
+float HeapSum(int size, string type) {...}
+```
+**Description**<br>
+&nbsp; Summs up all the items inside ***heap*** from the smallest to the largest if it is a Min-Heap and from the largest to the smallest if it a Max-Heap.
+
+**Parameters**<br>
+&nbsp; size the integer size of the ***heap***. <br>
+&nbsp; type the type of heap the program should expect (can only take the values "heapMax" or "heapMin").
+
+**What the function template returns**<br>
+&nbsp; the first element (the root) of ***heap***, that by that time is the summ of all its previous items.
+<br><br>
+
+```c++
+int main() {...}
+```
+**Description**<br>
+&nbsp; The **main** function can be divided into 3 parts: <br>
+
+<br> 1. Firstly, we call the function `userInput()` and save the results, also, we create a random number generator.
+```c++
+int N = userInput(); // get the users value and save it
+std::default_random_engine generator;
+std::chi_squared_distribution<float> my_distribution(0.5);
+auto random_num = std::bind(my_distribution, generator);
+```
+<br> 2. Afterwards, we create the array ***heap_min*** with the size **N** given by the user, and fill it with random float numbers. We also create the array ***heap_max*** with the size **N** given by the user, and fill it with the same numbers as ***heap_min***.
+```c++
+float* heap_min = new float[N]; // initialize heap_min
+for (int i = 0; i < N; i++) { // fill heap_min with random float numbers
+  heap_min[i] = random_num() * 10000.0;
+}
+float* heap_max = new float[N]; // initialize heap_max
+for (int i = 0; i < N; i++) { // fill heap_max with the same random float values as heap_min  
+  heap_max[i] = heap_min[i];
+}
+```
+<br> 3. Following, we turn ***heap_min*** into a Min-Heap using `Initialize()` and then we calculate its summ using `HeapSum()`, save the result and print it. We then do the same procedure for ***heap_max*** accordingly. Lastly, we calculate the absolute defference of the two aforementioned summs and print it.
+```c++
+Initialize(heap_min, N, "heapMin"); // Turn the list heap_min into a min heap
+float heapMinSum = HeapSum(N, "heapMin");
+cout << "Summing up all numbers from the smallest to the largest results in: " << heapMinSum << endl;
+
+Initialize(heap_max, N, "heapMax"); // Turn the list heap_max into a max heap
+float heapMaxSum = HeapSum(N, "heapMax");
+cout << "Summing up all numbers from the largest to the smallest results in: " << heapMaxSum << endl;
+
+float diff = abs(heapMaxSum - heapMinSum); // the absolute difference of the two summs
+cout << "The absolute difference of these two numbers is: " << diff << endl;
+```
 <br><br>
 Λεωνίδας Πάστρας <br>
 p20155
