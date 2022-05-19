@@ -337,7 +337,7 @@ std::default_random_engine generator;
 std::chi_squared_distribution<float> my_distribution(0.5);
 auto random_num = std::bind(my_distribution, generator);
 ```
-<br> 2. Afterwards, we create the array ***heap_min*** with the size **N** given by the user, and fill it with random float numbers. We also create the array ***heap_max*** with the size **N** given by the user, and fill it with the same numbers as ***heap_min***.
+<br> 2. Afterwards, we create the array ***heap_min*** with the size **N** given by the user, and fill it with random float numbers. We also create the array ***heap_max*** with the same size **N**, and fill it with the same numbers as ***heap_min***.
 ```c++
 float* heap_min = new float[N]; // initialize heap_min
 for (int i = 0; i < N; i++) { // fill heap_min with random float numbers
